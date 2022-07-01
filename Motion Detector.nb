@@ -1,0 +1,185 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7512,        177]
+NotebookOptionsPosition[      6721,        157]
+NotebookOutlinePosition[      7151,        173]
+CellTagsIndexPosition[      7108,        170]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"ListLinePlot", "[", "\n", "  ", 
+   RowBox[{"data", ",", "\n", "  ", 
+    RowBox[{"PlotRange", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "500"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "6000"}], "}"}]}], "}"}]}], ",", " ", 
+    RowBox[{"PlotRangePadding", " ", "->", " ", 
+     RowBox[{"Scaled", "[", "0.1", "]"}]}], ",", "\n", "  ", 
+    RowBox[{"Mesh", " ", "->", " ", "All"}], ",", " ", 
+    RowBox[{"MeshStyle", " ", "->", " ", "Red"}], ",", 
+    RowBox[{"Filling", "\[Rule]", "Axis"}]}], "]"}], "\[IndentingNewLine]", 
+  "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", " ", "=", " ", 
+    RowBox[{"{", "}"}]}], ";"}], " "}], "\n", 
+ RowBox[{
+  RowBox[{"x", " ", "=", " ", "0"}], ";", 
+  RowBox[{"i", "=", "0"}], ";"}], "\n", 
+ RowBox[{"While", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", " ", "<", " ", "500"}], " ", "&&", " ", 
+    RowBox[{"i", "<", "500"}]}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{"data", " ", "=", " ", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"data", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"v", "[", "i", "]"}]}], "}"}]}], "]"}]}], ";", "\n", "  ", 
+    RowBox[{"x", "++"}], ";", 
+    RowBox[{"i", "++"}]}]}], "\n", "]"}], "\n", 
+ RowBox[{"IMAQ`StartCamera", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "0"}], ",", 
+   RowBox[{"i", "<", "500"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", " ", "\n", 
+   RowBox[{
+    RowBox[{"myImage", " ", "=", 
+     RowBox[{"ImageDifference", " ", "@@", " ", 
+      RowBox[{"CurrentImage", "[", "2", "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Pause", "[", "0.2", "]"}], ";", "\n", 
+    RowBox[{"grayImage", " ", "=", " ", 
+     RowBox[{"ColorConvert", "[", 
+      RowBox[{"myImage", ",", " ", "\"\<Grayscale\>\""}], "]"}]}], ";", "\n", 
+    RowBox[{"intensVals", " ", "=", " ", 
+     RowBox[{"Flatten", "@", 
+      RowBox[{"ImageData", "[", "grayImage", "]"}]}]}], ";", " ", "\n", 
+    RowBox[{
+     RowBox[{"v", "[", "i", "]"}], " ", "=", " ", 
+     RowBox[{"Total", "[", "intensVals", "]"}]}], ";", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"v", "[", "i", "]"}], ">", "2500"}], ",", 
+      RowBox[{"EmitSound", "[", 
+       RowBox[{"Play", "[", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"4000", 
+           RowBox[{"t", "^", "2"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "3"}], "}"}]}], "]"}], "]"}]}], 
+     "]"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"IMAQ`StopCamera", "[", "]"}], " "}]}], "Input",
+ CellChangeTimes->{{3.8431677281622567`*^9, 3.843167728779605*^9}, {
+   3.843168042182934*^9, 3.843168050794228*^9}, {3.84316829888157*^9, 
+   3.8431683222721243`*^9}, 3.8431684089632792`*^9, {3.843168571525004*^9, 
+   3.8431686082761593`*^9}, {3.843169238839903*^9, 3.843169293313959*^9}, 
+   3.8431693798909264`*^9, {3.843169414744904*^9, 3.8431694448839445`*^9}, {
+   3.8431695170269175`*^9, 3.843169574778508*^9}, {3.8431696262672586`*^9, 
+   3.843169646162789*^9}, 3.8431721087381372`*^9, {3.843176094463781*^9, 
+   3.8431761297235537`*^9}, {3.84317622551129*^9, 3.843176225888281*^9}, {
+   3.8431765159687605`*^9, 3.8431765455661583`*^9}, {3.843176590600157*^9, 
+   3.843176591179552*^9}, {3.843176647929838*^9, 3.843176648743208*^9}, {
+   3.843176695888903*^9, 3.843176698719454*^9}, {3.843176774652649*^9, 
+   3.843176785614312*^9}, {3.8431792529428787`*^9, 3.8431793182196083`*^9}, {
+   3.8431793856508517`*^9, 3.843179415300316*^9}, {3.8431794582853336`*^9, 
+   3.843179461178157*^9}, {3.843179670871896*^9, 3.8431796711847563`*^9}, 
+   3.8431797656458836`*^9, {3.8655874203101025`*^9, 3.865587421152135*^9}, {
+   3.8655875032865677`*^9, 3.8655875034868755`*^9}, {3.8655879643175173`*^9, 
+   3.865587966476449*^9}, {3.8655880508687744`*^9, 3.865588066838934*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"b0d35063-41e3-4399-ad35-a4b8a6589a3f"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   ListLinePlot[$CellContext`data, PlotRange -> {{0, 500}, {0, 6000}}, 
+    PlotRangePadding -> Scaled[0.1], Mesh -> All, MeshStyle -> Red, Filling -> 
+    Axis], StandardForm],
+  ImageSizeCache->{521.5, {23.1, 12.}}]], "Output",
+ CellChangeTimes->{3.865587915573367*^9, 3.865587970107916*^9, 
+  3.865588247382747*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"88abde24-0907-4bc6-a4d6-3a9123c0e7b3"]
+}, Open  ]],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   ListLinePlot[$CellContext`data, PlotRange -> {{0, 500}, {0, 6000}}, 
+    PlotRangePadding -> Scaled[0.1], Mesh -> All, MeshStyle -> Red, Filling -> 
+    Axis], StandardForm],
+  ImageSizeCache->{679.8000000000002, {23.1, 12.}}]], "Input",
+ CellChangeTimes->{3.8655879107140975`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"b4f87dfe-6b61-4448-bd35-c619e7b8d0a3"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   ListLinePlot[$CellContext`data, PlotRange -> {{0, 500}, {0, 6000}}, 
+    PlotRangePadding -> Scaled[0.1], Mesh -> All, MeshStyle -> Red, Filling -> 
+    Axis], StandardForm],
+  ImageSizeCache->{521.5, {23.1, 12.}}]], "Output",
+ CellChangeTimes->{3.865587910758546*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"6c6c423f-244b-4793-9af4-4240416d22d1"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.843168094427272*^9, 3.843168127213403*^9}, {
+   3.8431684005353355`*^9, 3.843168401986904*^9}, 3.8431685666360736`*^9, {
+   3.843169459399413*^9, 3.8431694607687464`*^9}, {3.843172095467631*^9, 
+   3.843172095694021*^9}, {3.8431723726985493`*^9, 3.8431724144737997`*^9}, {
+   3.8431725148332376`*^9, 3.84317252271115*^9}, {3.84317260414577*^9, 
+   3.843172619998522*^9}, {3.843176047084506*^9, 3.843176078870491*^9}, {
+   3.843176132152684*^9, 3.843176133613027*^9}, {3.8431765471865273`*^9, 
+   3.8431765473620777`*^9}, {3.843176700651355*^9, 3.843176700821833*^9}, {
+   3.8431794637490597`*^9, 3.8431794639526663`*^9}, {3.8431795276254444`*^9, 
+   3.8431795471235237`*^9}, 
+   3.8431797619286847`*^9},ExpressionUUID->"7fb92683-9495-4001-acee-\
+72e95cd2c0dc"]
+},
+WindowSize->{948.5999999999999, 466.79999999999995`},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2f63f72d-6843-41c3-ac88-8cfcf146a201"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4092, 90, 400, "Input",ExpressionUUID->"b0d35063-41e3-4399-ad35-a4b8a6589a3f"],
+Cell[4675, 114, 431, 8, 53, "Output",ExpressionUUID->"88abde24-0907-4bc6-a4d6-3a9123c0e7b3"]
+}, Open  ]],
+Cell[5121, 125, 397, 7, 49, "Input",ExpressionUUID->"b4f87dfe-6b61-4448-bd35-c619e7b8d0a3"],
+Cell[5521, 134, 384, 7, 53, "Output",ExpressionUUID->"6c6c423f-244b-4793-9af4-4240416d22d1"],
+Cell[5908, 143, 809, 12, 28, "Input",ExpressionUUID->"7fb92683-9495-4001-acee-72e95cd2c0dc"]
+}
+]
+*)
+
